@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Registration From</h2>
+
+    <form action="" id="user_form">
+        <label for="name">Name</label>
+        <input required type="text" id="name" name="name" placeholder="Enter full name" required><br />
+
+        <label for="email">Email</label>
+        <input required type="email" id="email" name="email" placeholder="Enter email"><br />
+
+        <label for="password" class="text-md w-40 inline-block font-medium leading-5 text-gray-700">Password</label>
+        <input required type="password" id="password" name="password" placeholder="Enter password"><br />
+
+        <label for="dob" min="18" max="55">Date of Birth</label>
+        <input required type="date" id="dob" name="dob" placeholder="dd/mm/yyyy"><br />
+
+        <label for="acceptTerms">Accept our Terms & Conditions</label>
+        <input required type="checkbox" name="acceptTerms" id="acceptTerms"><br />
+
+        <button type="submit" id="submit">Submit</button>
+    </form>
+
+    <h2 class="text-xl text-center font-bold leadin-right">Entries</h2>
+    <div class="divide-y divide-gray-300/50" id="user-entries"></div>
+</body>
+<script>
+    const email = document.getElementById('email');
+    email.addEventListener('input', () => validate(email));
+    const submit = document.getElementById(submit)
+    submit.addEventListener('click', () => validate(email))
+    function validate(element) {
+        if (element.validity.typeMismatch) {
+            element.setCustomValidity("The Email is not the right format");
+            element.reportValidity();
+        } else {
+            element.setCustomValidity('');
+        }
+    }
+</script>
+<script src="index.js"></script>
+
+</html>
